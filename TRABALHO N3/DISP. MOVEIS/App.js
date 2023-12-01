@@ -258,6 +258,4 @@ const styles = StyleSheet.create({
     padding: 2,
   },
 });
-
-// Exporta o componente principal
 export default App;
