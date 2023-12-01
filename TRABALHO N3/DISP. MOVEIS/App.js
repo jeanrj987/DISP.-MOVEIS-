@@ -39,6 +39,7 @@ const App = () => {
         // recebe mensagens do websocket
         const message = JSON.parse(event.data);
         // console.log('Mensagem WebSocket:', message); comentado pq fica atualizando no cmd
+        // Verifica se a uma mensagem valida
         if (message) {
           setData({
             priceChange: parseFloat(message.p),
@@ -167,21 +168,13 @@ const App = () => {
   </View>
 
   <View style={styles.calendario}>
-    <TextInput
-      style={styles.input}
-      placeholder="Nome do Evento"
-      value={eventName}
-      onChangeText={(text) => setEventName(text)}
+    <TextInput style={styles.input} placeholder="Nome do Evento" alue={eventName} onChangeText={(text) => setEventName(text)}
     />
   </View>
 
   <View style={styles.buttonEscolherData}>
     <Button title="Escolher Data" onPress={showDatePicker} />
-    <DateTimePickerModal
-      isVisible={isDatePickerVisible}
-      mode="datetime"
-      onConfirm={handleDateConfirm}
-      onCancel={hideDatePicker}
+    <DateTimePickerModal isVisible={isDatePickerVisible} mode="datetime" onConfirm={handleDateConfirm} onCancel={hideDatePicker}
     />
   </View>
 
